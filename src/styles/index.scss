@@ -1,0 +1,7 @@
+@import './variables';
+@import './base';
+@import './mixins';
+
+// import de componentes
+@import './components/header.scss';
+@import './components/PrimaryButton';

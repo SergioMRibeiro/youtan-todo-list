@@ -1,0 +1,54 @@
+// Reset básico de CSS
+*,
+*::before,
+*::after {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html, body {
+  height: 100%;
+  font-family: $font-family-base;
+  background-color: $background-color;
+  color: $text-color;
+  line-height: 1.6;
+  font-size: $font-size-m;
+}
+
+img {
+  max-width: 100%;
+  height: auto;
+  display: block;
+}
+
+a {
+  text-decoration: none;
+  color: inherit;
+  &:hover {
+    color: $secondary-color;
+  }
+}
+
+button {
+  cursor: pointer;
+  border: none;
+  outline: none;
+}
+
+// Elementos de cabeçalho
+h1, h2, h3, h4, h5, h6 {
+  font-weight: 600;
+  margin-top: 0;
+  margin-bottom: $spacing-s;
+}
+
+p {
+  margin-top: 0;
+  margin-bottom: $spacing-s;
+}
+
+a,
+input{
+  outline: 0;
+}

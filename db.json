@@ -1,0 +1,13 @@
+{
+  "tasks": [
+    {
+      "id": 0,
+      "title": "Criar layout para todo list",
+      "description": "Criar uma base no figma com inspiração no Jira e Runtime.",
+      "createdAs": "10/10/2024, 22:12:06",
+      "taskIdentificator": "aut-1",
+      "status": "fazendo",
+      "tag": "dev"
+    }
+  ]
+}

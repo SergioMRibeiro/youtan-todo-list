@@ -1,0 +1,40 @@
+.headerContainer {
+  padding: 26px 24px;
+  box-shadow: 0px 4px 4px 0px #00000040;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+
+  .searchBarCotainer,
+  .menusContent {
+    display: flex;
+    align-items: center;
+    gap: $spacing-l;
+  }
+
+  .searchBarCotainer {
+    gap: 0;
+    min-width: 341px;
+    border: 1px solid #000;
+    border-radius: 6px;
+    padding-inline: $spacing-s;
+
+    .search {
+      &Imput {
+        height: 39px;
+        flex: 1;
+        background-color: transparent;
+        border: 0;
+        &:focus-visible {
+          border: 0;
+        }
+      }
+
+      &Button {
+        height: 39px;
+        background-color: transparent;
+      }
+    }
+  }
+}
