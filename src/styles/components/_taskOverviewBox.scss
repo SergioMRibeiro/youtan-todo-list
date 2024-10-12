@@ -1,0 +1,30 @@
+.taskOverview {
+  &MainContainer {
+    background-color: #b3cdd1;
+    border-radius: 6px;
+    padding: $spacing-xs;
+  }
+
+  &StatusAndDateContent {
+    display: flex;
+    align-items: center;
+  }
+
+  &StatusBox {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+  }
+
+  &StatusDot {
+    content: '';
+    width: 10px;
+    height: 10px;
+    border-radius: 5px;
+    background-color: green;
+  }
+
+  &Date {
+    margin-right: 16px;
+  }
+}

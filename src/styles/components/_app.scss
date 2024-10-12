@@ -1,0 +1,9 @@
+
+.appPrimaryMainContainer{
+  @include container-width-limit;
+  @include responsive(tablet){
+    display: flex;
+    flex-direction: column;
+    gap: $spacing-l;
+  }
+}

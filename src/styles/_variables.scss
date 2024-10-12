@@ -5,15 +5,19 @@ $background-color: #fff;
 $text-color: #343434;
 $light-gray: #ecf0f1;
 
+// Cores para botões
 $button-primary-color: #d5e87f;
 $button-primary-hover: #bbcd6c;
 
+// Cores para links
 $link-primary-hover: #87954b;
 
+// Cores para sombras
 $modal-background-shadow: hsla(0, 0%, 0%, 0.36);
 
 // Tipografia
 $font-family-base: 'Arial', sans-serif;
+
 $font-size-m: 16px;
 $font-size-l: 24px;
 $font-size-s: 14px;
@@ -21,6 +25,7 @@ $font-size-xs: 12px;
 $font-size-xxs: 10px;
 
 // Espaçamento
+$spacing-xs: 8px;
 $spacing-s: 8px;
 $spacing-m: 16px;
 $spacing-l: 24px;

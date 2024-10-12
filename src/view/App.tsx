@@ -1,17 +1,20 @@
 /* eslint-disable no-console */
 import React from 'react'
-import Home from './pages/Home'
 import Header from '../components/Header'
+import { BrowserRouter as Router } from 'react-router-dom'
+import RouteApp from '../routes/RouteApp'
 
 function App() {
   return (
-    <div className="App">
+    <Router>
       <header>
         <Header />
       </header>
 
-      <Home />
-    </div>
+      <div className="appPrimaryMainContainer">
+        <RouteApp />{' '}
+      </div>
+    </Router>
   )
 }
 
