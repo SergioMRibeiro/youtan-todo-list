@@ -3,5 +3,6 @@
 @import './mixins';
 
 // import de componentes
-@import './components/header.scss';
-@import './components/PrimaryButton';
+@import './components/header';
+@import './components/primaryButton';
+@import './components/genericModal';

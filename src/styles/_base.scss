@@ -26,7 +26,7 @@ a {
   text-decoration: none;
   color: inherit;
   &:hover {
-    color: $secondary-color;
+    color: $link-primary-hover;
   }
 }
 
@@ -34,6 +34,10 @@ button {
   cursor: pointer;
   border: none;
   outline: none;
+
+  &:hover{
+    background-color: $button-primary-hover;
+  }
 }
 
 // Elementos de cabeçalho

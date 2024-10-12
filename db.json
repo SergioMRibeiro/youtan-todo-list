@@ -5,9 +5,20 @@
       "title": "Criar layout para todo list",
       "description": "Criar uma base no figma com inspiração no Jira e Runtime.",
       "createdAs": "10/10/2024, 22:12:06",
+      "finalizationDate": null,
       "taskIdentificator": "aut-1",
       "status": "fazendo",
       "tag": "dev"
+    },
+    {
+      "id": "f7a2",
+      "title": "primeiro teste de creação",
+      "description": "testar isso mesmo com erros de português",
+      "tag": "ux",
+      "status": "aberto",
+      "taskIdentificator": "aut-(7252)",
+      "createdAs": "11/10/2024, 22:37:44",
+      "finalizationDate": null
     }
   ]
 }

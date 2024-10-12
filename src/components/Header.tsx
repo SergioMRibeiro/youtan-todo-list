@@ -2,15 +2,51 @@
 import React, { useState } from 'react'
 import LogoDesktop from '../assets/images/logo-youtan 2.png'
 import PrimaryButton from './PrimaryButton'
+import GenericModal from './GenericModal'
 
 const Header = () => {
+  const [genericModalIsOpen, setGenericModalIsOpen] = useState(false)
   const [windowDimensions, setWindowDimensions] = useState({
     width: window.innerWidth,
-
     height: window.innerHeight,
   })
 
   console.log(windowDimensions, setWindowDimensions)
+
+  const handlesSubmitTask = async (e: React.FormEvent<HTMLFormElement>) => {
+    e.preventDefault()
+
+    const formData = new FormData(e.currentTarget)
+
+    const taskData = {
+      title: formData.get('taskName'),
+      description: formData.get('description'),
+      tag: formData.get('tag'),
+      status: 'aberto',
+      taskIdentificator: `aut-${Math.floor(Math.random() * 10003)}`,
+      createdAs: new Date().toLocaleString(),
+      finalizationDate: null,
+    }
+
+    try {
+      const response = await fetch('http://localhost:3000/tasks', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify(taskData), 
+      })
+
+      if (!response.ok) {
+        throw new Error('Erro ao criar a tarefa')
+      }
+
+      const data = await response.json()
+      console.log('Tarefa criada com sucesso:', data)
+    } catch (error) {
+      console.error('Erro ao enviar a tarefa:', error)
+    }
+  }
 
   return (
     <div className="headerContainer">
@@ -38,7 +74,7 @@ const Header = () => {
         </button>
       </div>
 
-      <PrimaryButton onClick={() => console.log('Fui clicado')}>
+      <PrimaryButton onClick={() => setGenericModalIsOpen(true)}>
         Criar Nova Tarefa
       </PrimaryButton>
 
@@ -53,6 +89,54 @@ const Header = () => {
           <p>Todas as tarefas</p>
         </a>
       </div>
+
+      <GenericModal
+        isOpen={genericModalIsOpen}
+        setIsOpen={setGenericModalIsOpen}
+        title="Nome da tarefa em várias linhas, Nome da tarefa em várias linhasNome da tarefa em várias linhasNome da tarefa em várias linhas">
+        <div className="taskFormMainContainer">
+          <form
+            className="taskFormMainFormContent"
+            onSubmit={handlesSubmitTask}>
+            <span className="taskFormInputContent">
+              <label htmlFor="taskName" className="taskFormLabel">
+                Nome da tarefa
+              </label>
+              <input
+                type="text"
+                name="taskName"
+                className="taskFormInput"
+                required
+              />
+            </span>
+            <span className="taskFormInputContent">
+              <label htmlFor="description" className="taskFormLabel">
+                Descrição da tarefa
+              </label>
+              <input
+                type="text"
+                name="description"
+                className="taskFormInput"
+                required
+              />
+            </span>
+
+            <span className="taskFormInputContent">
+              <label htmlFor="tag" className="taskFormLabel">
+                Tag
+              </label>
+              <select name="tag" className="taskFormSelect">
+                <option value="ux">ux</option>
+                <option value="front-end">front-end</option>
+                <option value="back-end">back-end</option>
+              </select>
+            </span>
+            <button className="taskFormSubmit" type="submit">
+              Criar
+            </button>
+          </form>
+        </div>
+      </GenericModal>
     </div>
   )
 }

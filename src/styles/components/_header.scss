@@ -37,4 +37,21 @@
       }
     }
   }
+
+  .genericModalContent{
+    max-width: 500px;
+  }
+
+  .taskForm{
+    &MainFormContent{
+      display: flex;
+      flex-direction: column;
+      gap: $font-size-m;
+    }
+
+    &InputContent{
+      display: flex;
+      flex-direction: column;
+    }
+  }
 }
