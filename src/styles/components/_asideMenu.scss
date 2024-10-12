@@ -1,0 +1,47 @@
+.asideMenu {
+  &Shadow,
+  &MainConatainer {
+    position: absolute;
+    height: 100vh;
+    width: 100vw;
+    top: 0;
+    left: 0;
+  }
+  &Shadow {
+    background-color: hsla(0, 0%, 0%, 0.36);
+    z-index: 1;
+  }
+  &CloseBtnContent {
+    position: absolute;
+    top: 8px;
+    height: fit-content;
+    right: 9px;
+    width: fit-content;
+    cursor: pointer;
+  }
+
+  &ContentContainer {
+    border-radius: 6px;
+    background-color: #fff;
+    z-index: 2;
+    position: absolute;
+    width: 75vw;
+    height: 100vh;
+    top: 0;
+    left: 0;
+    max-width: 400px;
+    padding: 20px 10px;
+
+    @include responsive(tablet){
+      display: flex;
+      flex-direction: column;
+      gap: $spacing-l;
+    }
+  }
+
+  &Title {
+    padding-right: 24px;
+    margin-bottom: 0;
+    line-height: normal;
+  }
+}

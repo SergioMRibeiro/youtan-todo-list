@@ -9,8 +9,8 @@
   }
 
   &Shadow{
-    background-color: hsla(0, 0%, 0%, 0.36);
-    z-index: 1;
+    background-color:$modal-background-shadow;
+    z-index: 2;
   }
 
   &CloseBtnContent{
@@ -23,12 +23,13 @@
   }
 
   &Content{
+    border-radius: 6px;
     background-color: #fff;
-    z-index: 2;
+    z-index: 3;
     position: absolute;
     width: auto;
     height: auto;
-    min-width: 200px;
+    min-width: 300px;
     min-height: 200px;
     top: 50%;
     left: 50%;

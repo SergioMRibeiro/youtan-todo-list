@@ -38,20 +38,45 @@
     }
   }
 
-  .genericModalContent{
+  .genericModalContent {
     max-width: 500px;
   }
 
-  .taskForm{
-    &MainFormContent{
+  .taskForm {
+    &MainFormContent {
       display: flex;
       flex-direction: column;
       gap: $font-size-m;
     }
 
-    &InputContent{
+    &InputContent {
       display: flex;
       flex-direction: column;
+    }
+  }
+
+  // Header versão mobile
+  &Mobile {
+    @include flex-center;
+    position: relative;
+
+    .asideMenuOpenButton {
+      position: absolute;
+      left: 13px;
+      top: 50%;
+      background-color: transparent;
+
+      transform: translateY(-50%);
+    }
+
+    .searchBarCotainer {
+      min-width: unset;
+    }
+
+    .menusContent{
+      flex-direction: column;
+      gap: 0;
+      align-items: start;
     }
   }
 }
