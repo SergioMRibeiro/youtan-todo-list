@@ -1,13 +1,13 @@
 import React from 'react'
 
-interface PrimaryButtonProps {
-  children: JSX.Element | string
-  onClick?: React.MouseEventHandler<HTMLButtonElement> | undefined
+interface PrimaryButtonProps
+  extends React.ButtonHTMLAttributes<HTMLButtonElement> {
+  children: React.ReactNode
 }
 
-const PrimaryButton = ({ children, onClick }: PrimaryButtonProps) => {
+const PrimaryButton = ({ children, ...rest }: PrimaryButtonProps) => {
   return (
-    <button className="containerPrimaryButton" onClick={onClick}>
+    <button {...rest} className="containerPrimaryButton">
       {children}
     </button>
   )

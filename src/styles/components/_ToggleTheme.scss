@@ -1,0 +1,81 @@
+$theme:"dark";
+
+body {
+  transition: background-color 0.3s, color 0.3s;
+}
+
+
+.light-mode {
+  background-color: white;
+  color: black;
+}
+
+.dark-mode {
+  background-color: #474343;
+  color: white;
+}
+
+.toggle-container {
+  display: flex;
+  align-items: center;
+  cursor: pointer;
+}
+
+.toggle {
+  position: relative;
+  width: 60px;
+  height: 30px;
+  background-color: if($theme != 'dark', #474343, white);
+  border-radius: 15px;
+  border: 1px solid #000000;
+  transition: background-color 0.3s;
+}
+
+
+
+.toggle:before {
+  content: '';
+  position: absolute;
+  width: 26px;
+  height: 26px;
+  border-radius: 50%;
+  background-color: $button-toggle-color;
+  top: 2px;
+  left: 2px;
+  transition: transform 0.3s;
+  z-index: 1;
+
+
+}
+
+.dark-mode .toggle {
+  background-color: #555; /* Muda a cor quando escuro */
+}
+
+.dark-mode .toggle:before {
+  transform: translateX(30px);
+}
+
+.icons {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  padding: 0 5px;
+}
+
+.icon {
+  width: 20px;
+  height: 20px;
+  fill: white;
+}
+
+.dark-mode .icon {
+  fill: white;
+}
+.light-mode .icon {
+  fill: black; 
+}
+

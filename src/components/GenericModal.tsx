@@ -1,7 +1,7 @@
 import React from 'react'
 
 type GenericModalProps = {
-  children: JSX.Element
+  children: JSX.Element | JSX.Element[]
   title?: string
   isOpen: boolean
   setIsOpen: React.Dispatch<React.SetStateAction<boolean>>

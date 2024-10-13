@@ -7,12 +7,16 @@ import PrimaryButton from './PrimaryButton'
 import GenericModal from './GenericModal'
 import AsideMenu from './AsideMenu'
 import useWindowDimensions from '../hooks/useWindowDimensions'
+import axios from 'axios'
+import ThemeToggle from './ToggleTheme'
 
 const Header = () => {
   const [genericModalIsOpen, setGenericModalIsOpen] = useState(false)
   const [asideMenuIsOpen, setAsideMenuIsOpen] = useState(false)
   const windowDimensions = useWindowDimensions()
 
+
+  // Função asincrona para criar nova tarefa
   const handlesSubmitTask = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault()
 
@@ -24,25 +28,26 @@ const Header = () => {
       tag: formData.get('tag'),
       status: 'aberto',
       taskIdentificator: `aut-${Math.floor(Math.random() * 10003)}`,
-      createdAs: new Date().toLocaleString(),
+      createdAt: new Date().toLocaleString(),
       finalizationDate: null,
     }
 
     try {
-      const response = await fetch('http://localhost:3000/tasks', {
-        method: 'POST',
-        headers: {
-          'Content-Type': 'application/json',
-        },
-        body: JSON.stringify(taskData),
-      })
+      const response = await axios.post(
+        'http://localhost:3000/tasks',
+        taskData,
+        {
+          headers: {
+            'Content-Type': 'application/json',
+          },
+        }
+      )
 
-      if (!response.ok) {
+      if (response.status !== 200 && response.status !== 201) {
         throw new Error('Erro ao criar a tarefa')
       }
 
-      const data = await response.json()
-      console.log('Tarefa criada com sucesso:', data)
+      setGenericModalIsOpen(!genericModalIsOpen)
     } catch (error) {
       console.error('Erro ao enviar a tarefa:', error)
     }
@@ -203,8 +208,12 @@ const Header = () => {
             <p>Todas as tarefas</p>
           </a>
         </div>
+        
+        <ThemeToggle/>
+
+        
       </div>
-      
+
       <GenericModal
         isOpen={genericModalIsOpen}
         setIsOpen={setGenericModalIsOpen}

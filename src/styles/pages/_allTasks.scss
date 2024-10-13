@@ -1,5 +1,7 @@
 .allTasks {
   &MainContainer {
+    height: 100%;
+    padding-inline: 16px;
     .taskContainerMainContainer {
       display: flex;
       flex-direction: column;

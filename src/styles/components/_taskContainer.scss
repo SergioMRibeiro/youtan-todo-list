@@ -1,9 +1,10 @@
 .taskContainer{
   &MainContainer{
     background-color: #EFEFEF;
-    height: 50vh;
+    height: 94%;
     width: 100%;
     padding: $spacing-m 9px;
     border-radius: 6px;
+    overflow-y: auto;
   }
 }

@@ -1,5 +1,6 @@
 
 .appPrimaryMainContainer{
+  height: calc(100% - 219px);
   @include container-width-limit;
   @include responsive(tablet){
     display: flex;

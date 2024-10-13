@@ -1,13 +1,25 @@
 // Cores
 $primary-color: #b3cdd1;
+$primary-color-dark: #8badb2;
 $secondary-color: #d5e87f;
 $background-color: #fff;
 $text-color: #343434;
-$light-gray: #ecf0f1;
+$light-gray: #b8b8b8;
+
+// DarkTheme
+$background-color-dark:#474343;
 
 // Cores para botões
 $button-primary-color: #d5e87f;
 $button-primary-hover: #bbcd6c;
+
+$button-warning-color: #cbaa26;
+$button-warning-hover: #a58a1c;
+
+$button-Dungeon-color: #cb2626;
+$button-Dungeon-hover: #a51c1c;
+
+$button-toggle-color: #4BA1B7;
 
 // Cores para links
 $link-primary-hover: #87954b;
@@ -16,7 +28,7 @@ $link-primary-hover: #87954b;
 $modal-background-shadow: hsla(0, 0%, 0%, 0.36);
 
 // Tipografia
-$font-family-base: 'Arial', sans-serif;
+$main-font: 'Arial', sans-serif;
 
 $font-size-m: 16px;
 $font-size-l: 24px;
@@ -25,7 +37,6 @@ $font-size-xs: 12px;
 $font-size-xxs: 10px;
 
 // Espaçamento
-$spacing-xs: 8px;
 $spacing-s: 8px;
 $spacing-m: 16px;
 $spacing-l: 24px;

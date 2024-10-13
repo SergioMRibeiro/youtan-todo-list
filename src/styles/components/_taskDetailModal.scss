@@ -1,0 +1,124 @@
+.taskDetail {
+  &Form {
+    display: flex;
+    flex-direction: column;
+    gap: $spacing-s;
+
+    .taskOverviewStatusAndDateContent {
+      width: 100%;
+      justify-content: space-between;
+    }
+
+    .taskOverviewStatusAndStatusSelectContent {
+      display: flex;
+    }
+  }
+
+  &Description,
+  &Title {
+    resize: none;
+    width: auto;
+    height: auto; /* Inicia com altura automática */
+    padding-right: 40px;
+    padding: 6px 6px 6px 6px;
+    margin-right: 24px;
+    font-family: $main-font;
+    font-size: $font-size-l;
+    font-weight: 400;
+    border: 0;
+    border-radius: 6px;
+    background-color: #e2e2e2;
+
+    &:focus,
+    &:focus-visible {
+      height: auto;
+      overflow-y: auto;
+      outline: 2px #383838 solid;
+    }
+
+    &:disabled {
+      background-color: transparent;
+      outline: none;
+      color: $text-color;
+      cursor: auto;
+    }
+  }
+
+  &Title {
+    margin-top: -20px;
+  }
+
+  &Description {
+    margin: 0;
+    font-weight: 400;
+    width: 100%;
+    font-size: $font-size-s;
+    padding: 6px;
+    max-height: 300px;
+    overflow-y: auto;
+  }
+
+  &ActionGroup {
+    display: flex;
+    gap: $spacing-m;
+    flex-direction: row;
+    align-items: center;
+
+    .containerPrimaryButton{
+      padding: 4px 16px;
+      margin-left: auto;
+    }
+  }
+
+  &EditButon {
+    background-color: transparent;
+    color: $text-color;
+    border-radius: 4px;
+    font-size: $font-size-s;
+    height: 24px;
+    width: auto;
+    padding-inline: 2px;
+    @include flex-center;
+
+    &:hover {
+      background-color: $button-warning-color;
+    }
+  }
+
+  &DeleteButon {
+    background-color: $button-Dungeon-color;
+    color: #fff;
+    border-radius: 4px;
+    font-size: $font-size-s;
+    height: 24px;
+    width: auto;
+    padding-inline: 2px;
+
+    .deletePath {
+      fill: #fff;
+    }
+    @include flex-center;
+
+    &:hover {
+      background-color: $button-Dungeon-hover;
+    }
+
+    &:disabled {
+      display: none;
+    }
+  }
+
+  &StatusSelect {
+    background-color: transparent;
+    border-color: #383838;
+    border-radius: 6px;
+    padding: 2px 4px;
+    margin-left: 6px;
+
+    &:disabled {
+      background-color: $light-gray;
+      border: 0;
+      color: #383838;
+    }
+  }
+}

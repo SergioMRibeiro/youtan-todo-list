@@ -9,11 +9,15 @@
 
 html, body {
   height: 100%;
-  font-family: $font-family-base;
+  font-family: $main-font;
   background-color: $background-color;
   color: $text-color;
   line-height: 1.6;
   font-size: $font-size-m;
+}
+
+#root{
+  height: inherit;
 }
 
 img {
@@ -56,3 +60,4 @@ a,
 input{
   outline: 0;
 }
+
