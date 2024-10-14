@@ -15,6 +15,7 @@ const Header = () => {
   const [genericModalIsOpen, setGenericModalIsOpen] = useState(false)
   const { fetchTasks } = useTasks()
   const [asideMenuIsOpen, setAsideMenuIsOpen] = useState(false)
+  const [stringOfSearchBar, setStringOfSearchBar] = useState('')
   const windowDimensions = useWindowDimensions()
 
   /** Função asincrona para criar nova tarefa */
@@ -26,7 +27,7 @@ const Header = () => {
     const taskData = {
       title: formData.get('taskName'),
       description: formData.get('description'),
-      tag: formData.get('tag'),
+      tag: formData.get('tag') ?? null,
       status: 'aberto',
       taskIdentificator: `aut-${Math.floor(Math.random() * 10003)}`,
       createdAt: new Date().toLocaleString(),
@@ -53,6 +54,14 @@ const Header = () => {
     } catch (error) {
       console.error('Erro ao enviar a tarefa:', error)
     }
+  }
+
+  /** Pesquisar por título da tarefa*/ 
+  const searchForName = (searchbarValue: string) => {
+    console.log('Teste --> ', searchbarValue)
+
+    fetchTasks(`tasks/?title=${searchbarValue}`)
+    setAsideMenuIsOpen(false)
   }
 
   const CommonModalContent = () => {
@@ -111,8 +120,12 @@ const Header = () => {
                 type="text"
                 placeholder="Pesquisar tarefa"
                 className="searchImput"
+                name="searchImput"
+                onChange={(e) => setStringOfSearchBar(e.target.value)}
               />
-              <button className="searchButton">
+              <button
+                className="searchButton"
+                onClick={() => searchForName(stringOfSearchBar)}>
                 <svg
                   width="19"
                   height="18"
@@ -158,8 +171,11 @@ const Header = () => {
             type="text"
             placeholder="Pesquisar tarefa"
             className="searchImput"
+            onChange={(e) => setStringOfSearchBar(e.target.value)}
           />
-          <button className="searchButton">
+          <button
+            className="searchButton"
+            onClick={() => searchForName(stringOfSearchBar)}>
             <svg
               width="19"
               height="18"
