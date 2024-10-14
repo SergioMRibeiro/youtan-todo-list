@@ -51,7 +51,6 @@ const TaskOverviewBox = ({
 
   /**Deletar tarefa pelo id*/
   const deleteSelectedTask = async (taskId: string) => {
-
     try {
       await axios.delete<TaskInterface>(`http://localhost:3000/tasks/${taskId}`)
 
@@ -127,15 +126,16 @@ const TaskOverviewBox = ({
     const updateBody = {
       status: formData.get('status'),
       title: formData.get('title'),
-      description: formData.get('description'),
+      description: formData.get('description') ?? '',
       finalizationDate:
         formData.get('status') === 'concluido'
           ? new Date().toLocaleString()
           : null,
     }
 
+    setSelectedTask(undefined)
+    // setGenericModalIsOpen(false)
     updateTask(updateBody)
-    setGenericModalIsOpen(false)
     setIsTaskEditable(false)
   }
 
@@ -210,7 +210,9 @@ const TaskOverviewBox = ({
               <span className="taskOverviewDate">
                 finalizado: {selectedTask?.finalizationDate?.substring(0, 10)}
               </span>
-            ): <></>}
+            ) : (
+              <></>
+            )}
 
             {selectedTask && (
               <div className="taskOverviewStatusAndStatusSelectContent">

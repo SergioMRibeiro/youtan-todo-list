@@ -32,13 +32,13 @@
     },
     {
       "id": "3014",
-      "title": "Criar blog 1",
-      "description": "asfasfasf TESTE XXXXX",
+      "title": "Criar blog 9",
+      "description": "TESTE de state 9",
       "tag": "ux",
-      "status": "cancelado",
+      "status": "concluido",
       "taskIdentificator": "aut-1161",
       "createdAt": "12/10/2024, 23:39:12",
-      "finalizationDate": null
+      "finalizationDate": "14/10/2024, 16:12:08"
     },
     {
       "id": "17fa",
