@@ -6,7 +6,6 @@ import { TaskInterface, UpdateTaskInterface } from '../utils/interfaces'
 import { useTasks } from '../utils/TaskContext'
 import PrimaryButton from './PrimaryButton'
 import TaskStatus from './TaskStatus'
-// import useUpdateTask from '../hooks/useUpdadeTaskList'
 
 type TaskOverviewBoxProps = {
   title: string
@@ -31,7 +30,6 @@ const TaskOverviewBox = ({
   const titleRef = useRef<HTMLTextAreaElement>(null)
   const [statusOnChange, setStatusOnChange] = useState(selectedTask?.status)
   const descriptionRef = useRef<HTMLTextAreaElement>(null)
-  // const updateTask = useUpdateTask()
   const { fetchTasks } = useTasks()
 
   /** Resgate  informações sobre uma determinada tarefa pela chave de identificação (taskIdentificator)*/
@@ -70,7 +68,6 @@ const TaskOverviewBox = ({
   // Atualização de tarefa para status (normalmente teria uma rota apenas para isso)
   const updateTaskByStatus = async (selectStatusValue: string) => {
     try {
-      // Fazer a requisição de PUT para atualizar a tarefa
       const response = await axios.put(
         `http://localhost:3000/tasks/${selectedTask?.id}`,
         {
@@ -101,7 +98,6 @@ const TaskOverviewBox = ({
     finalizationDate,
   }: UpdateTaskInterface) => {
     try {
-      // Fazer a requisição de PUT para atualizar a tarefa
       const response = await axios.put(
         `http://localhost:3000/tasks/${selectedTask?.id}`,
         {
@@ -252,7 +248,6 @@ const TaskOverviewBox = ({
             className="taskDetailDescription"
             defaultValue={selectedTask?.description}
             onInput={(e) => adjustHeight(e.target as HTMLTextAreaElement)}
-            // readOnly={!isTaskEditable}
             disabled={!isTaskEditable}
           />
 

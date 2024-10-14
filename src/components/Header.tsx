@@ -17,7 +17,7 @@ const Header = () => {
   const [asideMenuIsOpen, setAsideMenuIsOpen] = useState(false)
   const windowDimensions = useWindowDimensions()
 
-  // Função asincrona para criar nova tarefa
+  /** Função asincrona para criar nova tarefa */
   const handlesSubmitTask = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault()
 

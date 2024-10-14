@@ -8,13 +8,10 @@ import React, {
 } from 'react'
 import axios from 'axios'
 import { TaskInterface } from '../utils/interfaces'
-
-// Defina o tipo para o valor do contexto
 interface TaskContextType {
   tasks: TaskInterface[]
   setTasks: React.Dispatch<React.SetStateAction<TaskInterface[]>>
-  // eslint-disable-next-line no-unused-vars
-  updateTask: (task: TaskInterface) => Promise<void>
+  // A linha abixo é ecessário devido a problema de versão do lint
   // eslint-disable-next-line no-unused-vars
   fetchTasks: (path?: string) => void
 }
@@ -36,22 +33,6 @@ export const TaskProvider = ({ children }: { children: ReactNode }) => {
     }
   }
 
-  // Função para atualizar uma tarefa
-  const updateTask = async (updatedTask: TaskInterface) => {
-    try {
-      await axios.put(
-        `http://localhost:3000/tasks/${updatedTask.id}`,
-        updatedTask
-      )
-      setTasks((prevTasks) =>
-        prevTasks.map((task) =>
-          task.id === updatedTask.id ? updatedTask : task
-        )
-      )
-    } catch (error) {
-      console.error('Erro ao atualizar tarefa:', error)
-    }
-  }
 
   // UseEffect para buscar as tarefas quando o componente for montado
   useEffect(() => {
@@ -59,7 +40,7 @@ export const TaskProvider = ({ children }: { children: ReactNode }) => {
   }, [])
 
   return (
-    <TaskContext.Provider value={{ tasks, setTasks, fetchTasks, updateTask }}>
+    <TaskContext.Provider value={{ tasks, setTasks, fetchTasks }}>
       {children}
     </TaskContext.Provider>
   )

@@ -26,7 +26,6 @@ const FilterBar = () => {
   /**Filtro de status */
   const filterByStatus = (status: string) => {
     if (status === 'nenhum') {
-      // Se "nenhum" for selecionado, remove o filtro de status e restaura as tasks originais
       setActiveFilters(activeFilters.filter((filter) => filter !== 'status'))
       fetchTasks() // Faz o fetch sem filtros
     } else {
@@ -63,8 +62,8 @@ const FilterBar = () => {
         <label> Status: </label>
         <select
           className={`filterTaskSelectByStatus`}
-          value={selectedStatus} // Valor selecionado no select
-          onChange={handleStatusChange} // Atualiza o valor ao mudar o select
+          value={selectedStatus} 
+          onChange={handleStatusChange} 
         >
           <option value="nenhum">Nenhum</option>
           <option value="aberto">Aberto</option>
