@@ -18,7 +18,7 @@
       "status": "concluido",
       "taskIdentificator": "aut-(7252)",
       "createdAt": "11/10/2024, 22:37:44",
-      "finalizationDate": "14/10/2024, 01:47:51"
+      "finalizationDate": "14/10/2024, 16:19:53"
     },
     {
       "id": "08b2",
@@ -35,39 +35,9 @@
       "title": "Criar blog 9",
       "description": "TESTE de state 9",
       "tag": "ux",
-      "status": "concluido",
+      "status": "aberto",
       "taskIdentificator": "aut-1161",
       "createdAt": "12/10/2024, 23:39:12",
-      "finalizationDate": "14/10/2024, 16:12:08"
-    },
-    {
-      "id": "17fa",
-      "title": "kkkkkkkkk asda sda ",
-      "description": "kkkkkkkkkkkkkkkdasd asd asda sds ",
-      "tag": "back-end",
-      "status": "fazendo",
-      "taskIdentificator": "aut-8555",
-      "createdAt": "12/10/2024, 23:40:50",
-      "finalizationDate": null
-    },
-    {
-      "id": "103c",
-      "title": "wwwwwwwwwwwww",
-      "description": "wwwwwwwwwwwwwwww",
-      "tag": "back-end",
-      "status": "aberto",
-      "taskIdentificator": "aut-5756",
-      "createdAt": "13/10/2024, 00:15:56",
-      "finalizationDate": null
-    },
-    {
-      "id": "981c",
-      "title": "sdfadsfgas",
-      "description": "asfgasg",
-      "tag": null,
-      "status": "aberto",
-      "taskIdentificator": "aut-5640",
-      "createdAt": "14/10/2024, 03:00:26",
       "finalizationDate": null
     },
     {
@@ -78,6 +48,16 @@
       "status": "aberto",
       "taskIdentificator": "aut-7332",
       "createdAt": "14/10/2024, 03:02:05",
+      "finalizationDate": null
+    },
+    {
+      "id": "5505",
+      "title": "Teste completo de crud",
+      "description": "Testar todo o CRUD de tarefas Foi Concluído",
+      "tag": null,
+      "status": "fazendo",
+      "taskIdentificator": "aut-8630",
+      "createdAt": "14/10/2024, 16:14:41",
       "finalizationDate": null
     }
   ]

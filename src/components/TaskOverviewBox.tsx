@@ -223,7 +223,7 @@ const TaskOverviewBox = ({
                     onChange={(e) => setStatusOnChange(e.target.value)}
                     name="status"
                     className="taskDetailStatusSelect"
-                    defaultValue={selectedTask.status}
+                    defaultValue={statusOnChange}
                     disabled={
                       selectedTask.status === 'concluido' && !isTaskEditable
                         ? true
