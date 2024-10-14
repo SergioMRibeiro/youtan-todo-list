@@ -5,6 +5,7 @@ import TaskOverviewBox from '../../components/TaskOverviewBox'
 // import axios from 'axios'
 import { TaskInterface } from '../../utils/interfaces'
 import { useTasks } from '../../utils/TaskContext'
+import FilterBar from '../../components/FilterBar'
 
 const AllTasks = () => {
   const { tasks, fetchTasks } = useTasks()
@@ -21,10 +22,18 @@ const AllTasks = () => {
 
   return (
     <div className="allTasksMainContainer">
+      <FilterBar />
       <TaskContainer>
         <>
           {listofTask?.map((taskItem: TaskInterface, index: number) => {
-            const { title, createdAt, status, taskIdentificator, id, finalizationDate } = taskItem
+            const {
+              title,
+              createdAt,
+              status,
+              taskIdentificator,
+              id,
+              finalizationDate,
+            } = taskItem
             return (
               <TaskOverviewBox
                 title={title}

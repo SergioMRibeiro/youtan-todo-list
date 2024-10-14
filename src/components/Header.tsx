@@ -9,9 +9,11 @@ import AsideMenu from './AsideMenu'
 import useWindowDimensions from '../hooks/useWindowDimensions'
 import axios from 'axios'
 import ThemeToggle from './ToggleTheme'
+import { useTasks } from '../utils/TaskContext'
 
 const Header = () => {
   const [genericModalIsOpen, setGenericModalIsOpen] = useState(false)
+  const { fetchTasks } = useTasks()
   const [asideMenuIsOpen, setAsideMenuIsOpen] = useState(false)
   const windowDimensions = useWindowDimensions()
 
@@ -46,10 +48,39 @@ const Header = () => {
         throw new Error('Erro ao criar a tarefa')
       }
 
+      fetchTasks()
       setGenericModalIsOpen(!genericModalIsOpen)
     } catch (error) {
       console.error('Erro ao enviar a tarefa:', error)
     }
+  }
+
+  const CommonModalContent = () => {
+    return (
+      <div className="taskFormMainContainer">
+        <form className="taskFormMainFormContent" onSubmit={handlesSubmitTask}>
+          <span className="taskFormInputContent">
+            <label htmlFor="taskName" className="taskFormLabel">
+              Nome da tarefa:
+            </label>
+
+            <textarea name="taskName" className="taskFormInput"></textarea>
+          </span>
+
+          <span className="taskFormInputContent">
+            <label htmlFor="description" className="taskFormLabel">
+              Descrição da tarefa:
+            </label>
+
+            <textarea name="description" className="taskFormInput"></textarea>
+          </span>
+
+          <PrimaryButton className="taskFormSubmit" type="submit">
+            Criar
+          </PrimaryButton>
+        </form>
+      </div>
+    )
   }
 
   // Header versão mobile
@@ -75,18 +106,6 @@ const Header = () => {
 
         <AsideMenu isOpen={asideMenuIsOpen} setIsOpen={setAsideMenuIsOpen}>
           <div className="asideMenuMainContent">
-            <div className="menusContent">
-              <a className="menuLink" href="/dashboard">
-                <p className="menuItem">Dashboard</p>
-              </a>
-              <a className="menuLink" href="/">
-                <p className="menuItem">Sprint</p>
-              </a>
-              <a className="menuLink" href="/todas-as-tarefas">
-                <p className="menuItem">Todas as tarefas</p>
-              </a>
-            </div>
-
             <div className="searchBarCotainer">
               <input
                 type="text"
@@ -122,49 +141,8 @@ const Header = () => {
         <GenericModal
           isOpen={genericModalIsOpen}
           setIsOpen={setGenericModalIsOpen}
-          title="Nome da tarefa em várias linhas, Nome da tarefa em várias linhasNome da tarefa em várias linhasNome da tarefa em várias linhas">
-          <div className="taskFormMainContainer">
-            <form
-              className="taskFormMainFormContent"
-              onSubmit={handlesSubmitTask}>
-              <span className="taskFormInputContent">
-                <label htmlFor="taskName" className="taskFormLabel">
-                  Nome da tarefa
-                </label>
-                <input
-                  type="text"
-                  name="taskName"
-                  className="taskFormInput"
-                  required
-                />
-              </span>
-              <span className="taskFormInputContent">
-                <label htmlFor="description" className="taskFormLabel">
-                  Descrição da tarefa
-                </label>
-                <input
-                  type="text"
-                  name="description"
-                  className="taskFormInput"
-                  required
-                />
-              </span>
-
-              <span className="taskFormInputContent">
-                <label htmlFor="tag" className="taskFormLabel">
-                  Tag
-                </label>
-                <select name="tag" className="taskFormSelect">
-                  <option value="ux">ux</option>
-                  <option value="front-end">front-end</option>
-                  <option value="back-end">back-end</option>
-                </select>
-              </span>
-              <button className="taskFormSubmit" type="submit">
-                Criar
-              </button>
-            </form>
-          </div>
+          title="Criar Tarefa:">
+          <CommonModalContent />
         </GenericModal>
       </div>
     )
@@ -202,13 +180,7 @@ const Header = () => {
         </PrimaryButton>
 
         <div className="menusContent">
-          <a href="/dashboard">
-            <p>Dashboard</p>
-          </a>
           <a href="/">
-            <p>Sprint</p>
-          </a>
-          <a href="/todas-as-tarefas">
             <p>Todas as tarefas</p>
           </a>
         </div>
@@ -219,49 +191,8 @@ const Header = () => {
       <GenericModal
         isOpen={genericModalIsOpen}
         setIsOpen={setGenericModalIsOpen}
-        title="Nome da tarefa em várias linhas, Nome da tarefa em várias linhasNome da tarefa em várias linhasNome da tarefa em várias linhas">
-        <div className="taskFormMainContainer">
-          <form
-            className="taskFormMainFormContent"
-            onSubmit={handlesSubmitTask}>
-            <span className="taskFormInputContent">
-              <label htmlFor="taskName" className="taskFormLabel">
-                Nome da tarefa
-              </label>
-              <input
-                type="text"
-                name="taskName"
-                className="taskFormInput"
-                required
-              />
-            </span>
-            <span className="taskFormInputContent">
-              <label htmlFor="description" className="taskFormLabel">
-                Descrição da tarefa
-              </label>
-              <input
-                type="text"
-                name="description"
-                className="taskFormInput"
-                required
-              />
-            </span>
-
-            <span className="taskFormInputContent">
-              <label htmlFor="tag" className="taskFormLabel">
-                Tag
-              </label>
-              <select name="tag" className="taskFormSelect">
-                <option value="ux">ux</option>
-                <option value="front-end">front-end</option>
-                <option value="back-end">back-end</option>
-              </select>
-            </span>
-            <button className="taskFormSubmit" type="submit">
-              Criar
-            </button>
-          </form>
-        </div>
+        title="Criar tarefa:">
+        <CommonModalContent />
       </GenericModal>
     </div>
   )

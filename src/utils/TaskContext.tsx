@@ -15,7 +15,8 @@ interface TaskContextType {
   setTasks: React.Dispatch<React.SetStateAction<TaskInterface[]>>
   // eslint-disable-next-line no-unused-vars
   updateTask: (task: TaskInterface) => Promise<void>
-  fetchTasks: () => void
+  // eslint-disable-next-line no-unused-vars
+  fetchTasks: (path?: string) => void
 }
 
 export const TaskContext = createContext<TaskContextType | undefined>(undefined)
@@ -23,11 +24,11 @@ export const TaskContext = createContext<TaskContextType | undefined>(undefined)
 export const TaskProvider = ({ children }: { children: ReactNode }) => {
   const [tasks, setTasks] = useState<TaskInterface[]>([])
 
-  // Função para buscar as tarefas da API
-  const fetchTasks = async () => {
+  // Função para buscar as tarefas da API com path opcional
+  const fetchTasks = async (path: string = 'tasks') => {
     try {
       const response = await axios.get<TaskInterface[]>(
-        'http://localhost:3000/tasks'
+        `http://localhost:3000/${path}`
       )
       setTasks(response.data)
     } catch (error) {

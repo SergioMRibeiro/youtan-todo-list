@@ -81,7 +81,6 @@ $theme: 'dark';
     .searchBarCotainer {
       min-width: unset;
       margin-bottom: 15px;
-
     }
 
     .menusContent {
@@ -117,22 +116,61 @@ $theme: 'dark';
       }
     }
   }
-}
 
+  .taskForm {
+    &MainContainer {
+      display: flex;
+      width: 100%;
+    }
+
+    &MainFormContent{
+      display: flex;
+      flex-direction: column;
+      gap: $font-size-xs;
+      width: 100%;
+    }
+
+    &InputContent{
+      display: flex;
+      flex-direction: column;
+      gap: 0px;
+    }
+
+    &Input{
+      height: auto;
+      border-radius: 6px;
+      padding: 4px 6px;
+      width: 100%;
+      font-family: $main-font;
+      max-width: 100%;
+      background-color: $light-gray;
+      border: solid $background-color-dark;
+      resize: none;
+
+      &:focus,
+      &:focus-visible {
+        height: auto;
+        overflow-y: auto;
+        outline: 0;
+      }
+    }
+  }
+}
 
 body.dark-mode {
   .headerContainer {
     .searchBarCotainer {
       border: 1px solid #ffff;
-      
-      .searchImput{
+
+      .searchImput {
         color: #ffff;
       }
 
       .searchButton {
-        color:white;
-        
-        svg, path{
+        color: white;
+
+        svg,
+        path {
           stroke: #fff;
           fill: #fff;
         }

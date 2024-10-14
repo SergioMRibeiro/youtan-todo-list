@@ -13,12 +13,12 @@
     {
       "id": "f7a2",
       "title": "primeiro teste de criação",
-      "description": "testar isso mesmo com erros de português asda sd ",
+      "description": "testar isso mesmo com erros de português asda sd xxxxxxxxxx",
       "tag": "ux",
-      "status": "cancelado",
+      "status": "concluido",
       "taskIdentificator": "aut-(7252)",
       "createdAt": "11/10/2024, 22:37:44",
-      "finalizationDate": null
+      "finalizationDate": "14/10/2024, 01:47:51"
     },
     {
       "id": "08b2",
@@ -32,10 +32,10 @@
     },
     {
       "id": "3014",
-      "title": "asdfafs",
-      "description": "asfasfasf",
+      "title": "asdfafs TESTE",
+      "description": "asfasfasf TESTE XXXXX",
       "tag": "ux",
-      "status": "aberto",
+      "status": "cancelado",
       "taskIdentificator": "aut-1161",
       "createdAt": "12/10/2024, 23:39:12",
       "finalizationDate": null
@@ -58,6 +58,26 @@
       "status": "aberto",
       "taskIdentificator": "aut-5756",
       "createdAt": "13/10/2024, 00:15:56",
+      "finalizationDate": null
+    },
+    {
+      "id": "981c",
+      "title": "sdfadsfgas",
+      "description": "asfgasg",
+      "tag": null,
+      "status": "aberto",
+      "taskIdentificator": "aut-5640",
+      "createdAt": "14/10/2024, 03:00:26",
+      "finalizationDate": null
+    },
+    {
+      "id": "6703",
+      "title": "Teste de axios",
+      "description": "Testando req",
+      "tag": null,
+      "status": "aberto",
+      "taskIdentificator": "aut-7332",
+      "createdAt": "14/10/2024, 03:02:05",
       "finalizationDate": null
     }
   ]

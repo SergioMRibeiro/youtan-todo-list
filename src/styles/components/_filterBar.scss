@@ -1,0 +1,55 @@
+.filterTask {
+  &MainContainer {
+    @include flex-center;
+    gap: $font-size-m;
+    margin-bottom: $spacing-l;
+  }
+  &TitleRow {
+    margin: 0;
+  }
+
+  &Select {
+    &Content {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+
+    &ByStatus {
+      background-color: transparent;
+      outline: 0;
+      border: 2px #fff solid;
+      border-radius: 6px;
+      padding: 4px 6px;
+      color: #fff;
+    }
+  }
+
+  &Button {
+    &ByStatus,
+    &ByResetar,
+    &ByAZ {
+      background-color: $button-toggle-color;
+      color: #fff;
+      padding: 4px 8px;
+      border-radius: 6px;
+      font-weight: 700;
+      font-size: $font-size-s;
+    }
+  }
+}
+
+.light-mode {
+  .filterTask {
+    &Select {
+      &ByStatus {
+        background-color: transparent;
+        outline: 0;
+        border: 2px $text-color solid;
+        border-radius: 6px;
+        padding: 4px 6px;
+        color: $text-color;
+      }
+    }
+  }
+}
