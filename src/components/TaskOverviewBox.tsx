@@ -2,9 +2,10 @@
 import React, { useEffect, useRef, useState } from 'react'
 import GenericModal from './GenericModal'
 import axios from 'axios'
-import { TaskInterface } from '../utils/interfaces'
+import { TaskInterface, UpdateTaskInterface } from '../utils/interfaces'
 import { useTasks } from '../utils/TaskContext'
 import PrimaryButton from './PrimaryButton'
+import TaskStatus from './TaskStatus'
 // import useUpdateTask from '../hooks/useUpdadeTaskList'
 
 type TaskOverviewBoxProps = {
@@ -13,6 +14,7 @@ type TaskOverviewBoxProps = {
   status: string
   taskIdentificator: string
   taskId: string
+  finalizationDate: string | null
 }
 
 const TaskOverviewBox = ({
@@ -20,6 +22,7 @@ const TaskOverviewBox = ({
   createdAt,
   status,
   taskIdentificator,
+  finalizationDate,
   taskId,
 }: TaskOverviewBoxProps) => {
   const [genericModalIsOpen, setGenericModalIsOpen] = useState(false)
@@ -57,20 +60,56 @@ const TaskOverviewBox = ({
       await axios.delete<TaskInterface>(`http://localhost:3000/tasks/${taskId}`)
 
       fetchTasks()
+      setIsTaskEditable(false)
       setGenericModalIsOpen(!genericModalIsOpen)
     } catch (error) {
       console.error('Erro ao buscar tarefa:', error)
     }
   }
 
-  const updateTask = async (selectStatusValue: string) => {
+  // Atualização de tarefa para status (normalmente teria uma rota apenas para isso)
+  const updateTaskByStatus = async (selectStatusValue: string) => {
     try {
       // Fazer a requisição de PUT para atualizar a tarefa
-      const response = await axios.patch(
+      const response = await axios.put(
         `http://localhost:3000/tasks/${selectedTask?.id}`,
         {
           ...selectedTask,
           status: selectStatusValue,
+          finalizationDate:
+            selectStatusValue === 'concluido'
+              ? new Date().toLocaleString()
+              : null,
+        }
+      )
+
+      if (response.status !== 200 && response.status !== 201) {
+        console.log('Tarefa atualizada com sucesso:', response.data)
+        throw new Error('Erro ao atualizar a tarefa')
+      }
+
+      fetchTasks()
+    } catch (error) {
+      console.error('Erro ao tentar atualizar a tarefa:', error)
+    }
+  }
+
+  const updateTask = async ({
+    status,
+    title,
+    description,
+    finalizationDate,
+  }: UpdateTaskInterface) => {
+    try {
+      // Fazer a requisição de PUT para atualizar a tarefa
+      const response = await axios.put(
+        `http://localhost:3000/tasks/${selectedTask?.id}`,
+        {
+          ...selectedTask,
+          status,
+          title,
+          description,
+          finalizationDate,
         }
       )
 
@@ -93,10 +132,19 @@ const TaskOverviewBox = ({
     }
     const formData = new FormData(e.currentTarget)
 
-    console.log(formData.get('status'))
+    const updateBody = {
+      status: formData.get('status'),
+      title: formData.get('title'),
+      description: formData.get('description'),
+      finalizationDate:
+        formData.get('status') === 'concluido'
+          ? new Date().toLocaleString()
+          : null,
+    }
 
-    // updateTask(updatedTask)
+    updateTask(updateBody)
     setGenericModalIsOpen(false)
+    setIsTaskEditable(false)
   }
 
   /** Ajuste dinâmicamente a altura de campos de text área para evitar liberdade pro usuário*/
@@ -120,7 +168,7 @@ const TaskOverviewBox = ({
     if (!statusOnChange || statusOnChange === selectedTask?.status) {
       return
     }
-    updateTask(statusOnChange)
+    updateTaskByStatus(statusOnChange)
   }, [statusOnChange])
 
   return (
@@ -139,15 +187,12 @@ const TaskOverviewBox = ({
           }>
           {title}
         </p>
-        <div className="taskOverviewStatusAndDateContent">
-          <span className="taskOverviewDate">
-            criado: {createdAt.substring(0, 10)}
-          </span>
-          <span className="taskOverviewStatusBox">
-            <span className="taskOverviewStatusDot" />
-            Status: {status}
-          </span>
-        </div>
+
+        <TaskStatus
+          createdAt={createdAt}
+          statusName={status}
+          finalizatedAt={finalizationDate}
+        />
       </div>
 
       <GenericModal
@@ -169,35 +214,40 @@ const TaskOverviewBox = ({
               criado: {selectedTask?.createdAt.substring(0, 10)}
             </span>
 
-            <div className="taskOverviewStatusAndStatusSelectContent">
-              <span className="taskOverviewStatusBox">
-                <span className="taskOverviewStatusDot" />
-                Status:
+            {selectedTask?.finalizationDate ? (
+              <span className="taskOverviewDate">
+                finalizado: {selectedTask?.finalizationDate?.substring(0, 10)}
               </span>
+            ): <></>}
 
-              <span>
-                <select
-                  onChange={(e) => setStatusOnChange(e.target.value)}
-                  name="status"
-                  className="taskDetailStatusSelect"
-                  defaultValue={selectedTask?.status}
-                  disabled={
-                    selectedTask?.status === 'concluido' && !isTaskEditable
-                      ? true
-                      : false
-                  }>
-                  <option value="aberto">Aberto</option>
-                  <option value="concluido">Concluído</option>
-                  <option value="a fazer">A Fazer</option>
-                  <option value="fazendo">Fazendo</option>
-                  <option value="cancelado">Cancelado</option>
-                </select>
-              </span>
-            </div>
+            {selectedTask && (
+              <div className="taskOverviewStatusAndStatusSelectContent">
+                <span className="taskOverviewStatusBox">Status:</span>
+
+                <span>
+                  <select
+                    onChange={(e) => setStatusOnChange(e.target.value)}
+                    name="status"
+                    className="taskDetailStatusSelect"
+                    defaultValue={selectedTask.status}
+                    disabled={
+                      selectedTask.status === 'concluido' && !isTaskEditable
+                        ? true
+                        : false
+                    }>
+                    <option value="aberto">Aberto</option>
+                    <option value="concluido">Concluído</option>
+                    <option value="a fazer">A Fazer</option>
+                    <option value="fazendo">Fazendo</option>
+                    <option value="cancelado">Cancelado</option>
+                  </select>
+                </span>
+              </div>
+            )}
           </div>
 
           <textarea
-            name="descripiton"
+            name="description"
             ref={descriptionRef}
             className="taskDetailDescription"
             defaultValue={selectedTask?.description}

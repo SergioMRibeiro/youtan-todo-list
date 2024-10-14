@@ -6,8 +6,8 @@ import Home from '../view/pages/Home'
 const RouteApp = () => {
   return (
     <Routes>
-      <Route path="/todas-as-tarefas" element={<AllTasks />} />
-      <Route path="/" element={<Home />} />
+      <Route path="/" element={<AllTasks />} />
+      <Route path="/sprint" element={<Home />} />
     </Routes>
   )
 }

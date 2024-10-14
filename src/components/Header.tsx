@@ -15,7 +15,6 @@ const Header = () => {
   const [asideMenuIsOpen, setAsideMenuIsOpen] = useState(false)
   const windowDimensions = useWindowDimensions()
 
-
   // Função asincrona para criar nova tarefa
   const handlesSubmitTask = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault()
@@ -73,8 +72,9 @@ const Header = () => {
           </svg>
         </button>
         <img src={LogoMobile} alt="logo youtan" className="logoDesk" />
+
         <AsideMenu isOpen={asideMenuIsOpen} setIsOpen={setAsideMenuIsOpen}>
-          <>
+          <div className="asideMenuMainContent">
             <div className="menusContent">
               <a className="menuLink" href="/dashboard">
                 <p className="menuItem">Dashboard</p>
@@ -112,7 +112,11 @@ const Header = () => {
             <PrimaryButton onClick={() => setGenericModalIsOpen(true)}>
               Criar Nova Tarefa
             </PrimaryButton>
-          </>
+
+            <div className="asideMenuThemeToggle">
+              <ThemeToggle />
+            </div>
+          </div>
         </AsideMenu>
 
         <GenericModal
@@ -208,10 +212,8 @@ const Header = () => {
             <p>Todas as tarefas</p>
           </a>
         </div>
-        
-        <ThemeToggle/>
 
-        
+        <ThemeToggle />
       </div>
 
       <GenericModal

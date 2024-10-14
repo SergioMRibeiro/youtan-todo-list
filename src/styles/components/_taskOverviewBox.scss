@@ -3,31 +3,66 @@
     background-color: #b3cdd1;
     border-radius: 6px;
     padding: $spacing-s;
-    &:hover{
+    &:hover {
       background-color: $primary-color-dark;
     }
+  }
+
+  &TaskTitle{
+    font-size: $font-size-s;
+    font-weight: 700;
   }
 
   &StatusAndDateContent {
     display: flex;
     align-items: center;
+    justify-content: space-between;
+    font-size: $font-size-xs;
   }
 
   &StatusBox {
     display: flex;
     align-items: center;
-    gap: 8px;
+
+    font-size: $font-size-xs;
   }
 
   &StatusDot {
     content: '';
-    width: 10px;
-    height: 10px;
+    min-width: 10px;
+    min-height: 10px;
     border-radius: 5px;
-    background-color: green;
+    margin-right: 8px;
+
+
+    &Open {
+      background-color: $status-color-Open;
+    }
+    &Completed {
+      background-color: $status-color-Completed;
+    }
+    &ToDo {
+      background-color: $status-color-ToDo;
+    }
+    &InProgress {
+      background-color: $status-color-InProgress;
+    }
+    &Cancelled {
+      background-color: $status-color-Cancelled;
+    }
   }
 
   &Date {
     margin-right: 16px;
+  }
+}
+
+body.dark-mode {
+  .taskOverviewMainContainer {
+    background-color: #2b6f79;
+
+    &:hover {
+      background-color: #169db1;
+    }
   }
 }

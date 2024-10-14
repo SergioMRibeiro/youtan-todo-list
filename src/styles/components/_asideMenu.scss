@@ -6,6 +6,10 @@
     width: 100vw;
     top: 0;
     left: 0;
+
+    @include responsive(tablet){
+
+    }
   }
   &Shadow {
     background-color: hsla(0, 0%, 0%, 0.36);
@@ -43,5 +47,40 @@
     padding-right: 24px;
     margin-bottom: 0;
     line-height: normal;
+    color: #000000;
+  }
+}
+
+.asideMenuThemeToggle{
+  position: absolute;
+  bottom: 41px;
+  left: 23px;
+}
+
+body.dark-mode {
+  .asideMenu{
+    &ContentContainer{
+    background-color: #474343;
+    }
+    
+    &Title{
+      color: #fff;
+    }
+
+    &CloseBtnContent {
+      color:white;
+        
+        svg, path{
+          stroke: #fff;
+          fill: #fff;
+        }
+    }
+  }
+  .menusContent {
+    color: #fff;
+
+    .menuItem &:hover{
+      color:#169db1;
+    }
   }
 }

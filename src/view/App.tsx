@@ -5,6 +5,7 @@ import { BrowserRouter as Router } from 'react-router-dom'
 import RouteApp from '../routes/RouteApp'
 import { TaskProvider } from '../utils/TaskContext'
 import { ThemeProvider } from '../utils/ThemeContext'
+import Footer from '../components/Footer'
 
 function App() {
   return (
@@ -19,14 +20,9 @@ function App() {
             <RouteApp />{' '}
           </div>
 
-          <footer
-            style={{
-              width: '100%',
-              height: '66px',
-              backgroundColor: '#00A0B9',
-              bottom: '0',
-              position: 'absolute',
-            }}></footer>
+          <footer>
+            <Footer />
+          </footer>
         </Router>
       </TaskProvider>
     </ThemeProvider>

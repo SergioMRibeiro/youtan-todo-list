@@ -80,6 +80,8 @@ $theme: 'dark';
 
     .searchBarCotainer {
       min-width: unset;
+      margin-bottom: 15px;
+
     }
 
     .menusContent {
@@ -87,15 +89,40 @@ $theme: 'dark';
       gap: 0;
       align-items: start;
     }
+    .searchBarCotainer {
+      gap: 0;
+      min-width: 150px;
+      border: 1px solid #000;
+      transition: background-color 0.3s, border-color 0.3s;
+      border-radius: 6px;
+      padding-inline: $spacing-s;
+      display: flex;
+
+      .search {
+        &Imput {
+          height: 39px;
+          flex: 1;
+          background-color: transparent;
+          border: 0;
+
+          &:focus-visible {
+            border: 0;
+          }
+        }
+
+        &Button {
+          height: 39px;
+          background-color: transparent;
+        }
+      }
+    }
   }
 }
 
 
 body.dark-mode {
   .headerContainer {
-    background-color: #262626;
     .searchBarCotainer {
-      background-color: #262626;
       border: 1px solid #ffff;
       
       .searchImput{

@@ -1,9 +1,8 @@
-$theme:"dark";
+$theme: 'dark';
 
 body {
   transition: background-color 0.3s, color 0.3s;
 }
-
 
 .light-mode {
   background-color: white;
@@ -31,8 +30,6 @@ body {
   transition: background-color 0.3s;
 }
 
-
-
 .toggle:before {
   content: '';
   position: absolute;
@@ -40,12 +37,10 @@ body {
   height: 26px;
   border-radius: 50%;
   background-color: $button-toggle-color;
-  top: 2px;
+  top: 1px;
   left: 2px;
   transition: transform 0.3s;
   z-index: 1;
-
-
 }
 
 .dark-mode .toggle {
@@ -53,7 +48,7 @@ body {
 }
 
 .dark-mode .toggle:before {
-  transform: translateX(30px);
+  transform: translateX(28px);
 }
 
 .icons {
@@ -76,6 +71,5 @@ body {
   fill: white;
 }
 .light-mode .icon {
-  fill: black; 
+  fill: black;
 }
-

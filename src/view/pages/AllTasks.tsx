@@ -11,7 +11,6 @@ const AllTasks = () => {
 
   const [listofTask, setListOfTask] = useState<TaskInterface[]>([])
 
-  
   useEffect(() => {
     fetchTasks
   }, [])
@@ -20,34 +19,12 @@ const AllTasks = () => {
     setListOfTask(tasks)
   }, [tasks])
 
-  // const getAllTasks = async () => {
-  //   try {
-  //     const response = await axios.get<TaskInterface[]>(
-  //       `http://localhost:3000/tasks`
-  //     )
-
-  //     if (response.status !== 200 && response.status !== 201) {
-  //       throw new Error('Erro ao criar a tarefa')
-  //     }
-
-  //     setListOfTask(response.data)
-  //   } catch (error) {
-  //     // eslint-disable-next-line no-console
-  //     console.error('Erro ao buscar tarefa:', error)
-  //   }
-  // }
-
-
-
-
-
-
   return (
     <div className="allTasksMainContainer">
       <TaskContainer>
         <>
           {listofTask?.map((taskItem: TaskInterface, index: number) => {
-            const { title, createdAt, status, taskIdentificator, id } = taskItem
+            const { title, createdAt, status, taskIdentificator, id, finalizationDate } = taskItem
             return (
               <TaskOverviewBox
                 title={title}
@@ -56,6 +33,7 @@ const AllTasks = () => {
                 taskIdentificator={taskIdentificator}
                 taskId={id}
                 key={index}
+                finalizationDate={finalizationDate}
               />
             )
           })}

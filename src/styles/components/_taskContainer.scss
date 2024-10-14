@@ -8,3 +8,11 @@
     overflow-y: auto;
   }
 }
+
+
+body.dark-mode {
+  .taskContainerMainContainer{
+    background-color: #606060;
+  }
+  
+}

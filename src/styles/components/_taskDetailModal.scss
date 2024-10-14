@@ -18,10 +18,10 @@
   &Title {
     resize: none;
     width: auto;
-    height: auto; /* Inicia com altura automática */
+    height: auto;
     padding-right: 40px;
     padding: 6px 6px 6px 6px;
-    margin-right: 24px;
+    margin-right: 38px;
     font-family: $main-font;
     font-size: $font-size-l;
     font-weight: 400;
@@ -64,38 +64,38 @@
     flex-direction: row;
     align-items: center;
 
-    .containerPrimaryButton{
+    .containerPrimaryButton {
       padding: 4px 16px;
       margin-left: auto;
     }
   }
 
   &EditButon {
-    background-color: transparent;
+    background-color: $button-warning-color;
     color: $text-color;
     border-radius: 4px;
     font-size: $font-size-s;
     height: 24px;
     width: auto;
-    padding-inline: 2px;
+    padding-inline: 4px;
     @include flex-center;
 
     &:hover {
-      background-color: $button-warning-color;
+      background-color: $button-warning-hover;
     }
   }
 
   &DeleteButon {
     background-color: $button-Dungeon-color;
-    color: #fff;
+    color: #000000;
     border-radius: 4px;
     font-size: $font-size-s;
     height: 24px;
     width: auto;
-    padding-inline: 2px;
+    padding-inline: 5px;
 
     .deletePath {
-      fill: #fff;
+      fill: #000000;
     }
     @include flex-center;
 
@@ -120,5 +120,40 @@
       border: 0;
       color: #383838;
     }
+  }
+}
+
+body.dark-mode {
+  .taskDetail {
+    &Title,
+    &StatusSelect,
+    &Description {
+      color: #ffff;
+    }
+
+    &StatusSelect {
+      background-color: #302f2f;
+      border: 1px solid #636363;
+      display: flex;
+      justify-content: center;
+    }
+
+    &Description {
+      color: #fff;
+      // margin: 10px;
+    }
+
+    &Title,
+    &Description {
+      background-color: #636363;
+
+      &:disabled {
+        background-color: #302f2f;
+      }
+    }
+  }
+
+  .taskOverviewStatusAndDateContent {
+    padding-inline: 6px;
   }
 }

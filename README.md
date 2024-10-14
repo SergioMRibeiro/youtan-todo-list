@@ -1,46 +1,80 @@
-# Getting Started with Create React App
+# Para inicializar o projeto
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+Para realizar o download de pacotes e dependências necessárias: 
+`yarn` ou `npm i`
 
-## Available Scripts
+Para inicialização utilizando npm: `npm start:dev` ou `npm start dev`
 
-In the project directory, you can run:
+Para inicialização utilizando yarn: `yarn start:dev`
 
-### `yarn start`
+Caso ocorra problemas na inicialização do projeto, por conta da versão do
+Typescript, algumas soluções possíveis:
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+- Usar legacy--peer-deps: Ignora os conflitos de dependências, permitindo a
+  instalação do pacote.
 
-The page will reload if you make edits.\
-You will also see any lint errors in the console.
+`npm install --legacy-peer-deps`
 
-### `yarn test`
+- Downgrade do TypeScript Caso não precise da versão atualizada do Typescript,
+  pode fazer o downgrade:
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+`npm install typescript@4.9.5`
 
-### `yarn build`
+- Atualizar react-scripts Verificar se há versão mais recente e que seja
+  compatível. Para atualizar:
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+`npm install react-scripts@latest`
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+## Tecnologias utilizadas no projeto:
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+React - Uma biblioteca JavaScript para construir interfaces de usuário
+interativas e reutilizáveis.
 
-### `yarn eject`
+Typescript - Um superset do JavaScript que adiciona tipagem estática, melhorando
+a robustez e a manutenção do código.
 
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
+Scss - Uma extensão do CSS que permite a utilização de variáveis, aninhamento e
+mixins, facilitando a escrita de estilo
 
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+Db.json - Um arquivo utilizado para simular uma API RESTful em ambientes de
+desenvolvimento, permitindo o armazenamento e a manipulação de dados de forma
+simples.
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
+Concurrently - Uma ferramenta que permite executar múltiplos comandos em paralelo na linha de comando, facilitando o gerenciamento de tarefas simultâneas durante o desenvolvimento.
 
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
+Node: versão 20.15.1
 
-## Learn More
+## To Do List
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+Para o desenvolvimento do projeto, foi realizado um layout no Figma, para
+auxílio e embasamento.
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+https://www.figma.com/design/xh3ZD0RH79JytiJH2NY6jA/Untitled?node-id=301-2&t=Hvs2AlFVllVjCAmR-1
+
+## Imagens do projeto desenvolvido:
+
+<div>
+<img src="https://media.discordapp.net/attachments/307653329004134400/1295214693685661777/image.png?ex=670dd62e&is=670c84ae&hm=c3710b268934934386f57f2f529a796c2d0b7f2b0e9adb24a8b3350f1698fd61&=&format=webp&quality=lossless&width=1407&height=671"></img>
+</div>
+
+<div>
+<img src="https://media.discordapp.net/attachments/307653329004134400/1295214704289124382/image.png?ex=670dd631&is=670c84b1&hm=c66ae90356a0eff724c4dfe1fc4f8ef12d2979913f7afd55874e3843f1b253ad&=&format=webp&quality=lossless&width=1164&height=554"></img>
+
+### Visualização de tarefa
+
+<div>
+<img src="https://media.discordapp.net/attachments/307653329004134400/1295214998573813792/image.png?ex=670dd677&is=670c84f7&hm=142182679e6f7f6ff53a9b4ef6bf9dfef8c0bdc36f3cfeef1497bf5a9af87939&=&format=webp&quality=lossless"></img>
+
+### Edição de tarefa
+
+<div>
+<img src="https://media.discordapp.net/attachments/307653329004134400/1295215037841149992/image.png?ex=670dd680&is=670c8500&hm=1247ac88938c7d6ca6e16490cdbed49c6606bad3718078ad6c66f148b8b5dd3f&=&format=webp&quality=lossless"></img>
+
+## Feature Futuras ( Melhorias )
+
+- Criação de uma rota para uma página de dashboard, mostrando em estatísticas a quantidade de tarefas concluídas, em aberto e fazendo. (Verificar figma - Dashboard)
+- Criação de uma api para manipulação de requisições.
+- Substituição do json-server por um banco de dados relacional.
+- Mais Tratamento de erros
+- Desenvolmento da página de Sprint
+

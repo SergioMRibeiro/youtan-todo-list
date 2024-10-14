@@ -3,19 +3,19 @@
     {
       "id": "0",
       "title": "Criar layout para todo list",
-      "description": "Criar uma base no figma com inspiração no Jira e Runtime.",
+      "description": "Criar uma base no figma com inspiração no Jira e Runtime. dasdas ",
       "createdAt": "10/10/2024, 22:12:06",
-      "finalizationDate": null,
+      "finalizationDate": "14/10/2024, 00:23:46",
       "taskIdentificator": "aut-1",
-      "status": "aberto",
+      "status": "concluido",
       "tag": "dev"
     },
     {
       "id": "f7a2",
       "title": "primeiro teste de criação",
-      "description": "testar isso mesmo com erros de português",
+      "description": "testar isso mesmo com erros de português asda sd ",
       "tag": "ux",
-      "status": "aberto",
+      "status": "cancelado",
       "taskIdentificator": "aut-(7252)",
       "createdAt": "11/10/2024, 22:37:44",
       "finalizationDate": null
@@ -28,7 +28,7 @@
       "status": "concluido",
       "taskIdentificator": "aut-1426",
       "createdAt": "12/10/2024, 19:42:18",
-      "finalizationDate": null
+      "finalizationDate": "13/10/2024, 19:42:18"
     },
     {
       "id": "3014",
@@ -42,20 +42,20 @@
     },
     {
       "id": "17fa",
-      "title": "kkkkkkkkk",
-      "description": "kkkkkkkkkkkkkkk",
+      "title": "kkkkkkkkk asda sda ",
+      "description": "kkkkkkkkkkkkkkkdasd asd asda sds ",
       "tag": "back-end",
-      "status": "aberto",
+      "status": "fazendo",
       "taskIdentificator": "aut-8555",
       "createdAt": "12/10/2024, 23:40:50",
       "finalizationDate": null
     },
     {
       "id": "103c",
-      "title": "pppppppppppppp",
-      "description": "pppppppppppp",
+      "title": "wwwwwwwwwwwww",
+      "description": "wwwwwwwwwwwwwwww",
       "tag": "back-end",
-      "status": "cancelado",
+      "status": "aberto",
       "taskIdentificator": "aut-5756",
       "createdAt": "13/10/2024, 00:15:56",
       "finalizationDate": null
