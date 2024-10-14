@@ -44,7 +44,6 @@ const TaskOverviewBox = ({
       }
 
       setSelectedTask(response.data[0])
-      console.log(taskId, response.data)
     } catch (error) {
       console.error('Erro ao buscar tarefa:', error)
     }
@@ -52,7 +51,6 @@ const TaskOverviewBox = ({
 
   /**Deletar tarefa pelo id*/
   const deleteSelectedTask = async (taskId: string) => {
-    console.log(`http://localhost:3000/tasks/${taskId}`)
 
     try {
       await axios.delete<TaskInterface>(`http://localhost:3000/tasks/${taskId}`)
@@ -81,7 +79,6 @@ const TaskOverviewBox = ({
       )
 
       if (response.status !== 200 && response.status !== 201) {
-        console.log('Tarefa atualizada com sucesso:', response.data)
         throw new Error('Erro ao atualizar a tarefa')
       }
 
@@ -110,7 +107,6 @@ const TaskOverviewBox = ({
       )
 
       if (response.status !== 200 && response.status !== 201) {
-        console.log('Tarefa atualizada com sucesso:', response.data)
         throw new Error('Erro ao atualizar a tarefa')
       }
 

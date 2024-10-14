@@ -58,7 +58,6 @@ const Header = () => {
 
   /** Pesquisar por título da tarefa*/ 
   const searchForName = (searchbarValue: string) => {
-    console.log('Teste --> ', searchbarValue)
 
     fetchTasks(`tasks/?title=${searchbarValue}`)
     setAsideMenuIsOpen(false)
